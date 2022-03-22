@@ -1,0 +1,53 @@
+{
+  "kind": "collectionType",
+  "collectionName": "project",
+  "info": {
+    "name": "Project",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "color": {
+      "type": "string"
+    },
+    "image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "manager": {
+      "plugin": "users-permissions",
+      "model": "user"
+    },
+    "description": {
+      "type": "text"
+    },
+    "users": {
+      "plugin": "users-permissions",
+      "collection": "user"
+    },
+    "cards": {
+      "via": "project",
+      "collection": "card"
+    },
+    "chatrooms": {
+      "via": "project",
+      "collection": "chatrooms"
+    }
+  }
+}

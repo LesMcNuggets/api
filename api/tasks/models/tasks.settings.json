@@ -1,0 +1,34 @@
+{
+  "kind": "collectionType",
+  "collectionName": "task",
+  "info": {
+    "name": "Tasks"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "done": {
+      "type": "boolean"
+    },
+    "deadline": {
+      "type": "datetime"
+    },
+    "card": {
+      "via": "tasks",
+      "model": "card"
+    },
+    "users": {
+      "plugin": "users-permissions",
+      "collection": "user",
+      "via": "tasks",
+      "dominant": true
+    }
+  }
+}

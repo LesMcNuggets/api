@@ -1,0 +1,42 @@
+{
+  "kind": "collectionType",
+  "collectionName": "message",
+  "info": {
+    "name": "Messages",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "content": {
+      "type": "text"
+    },
+    "send_date": {
+      "type": "datetime"
+    },
+    "chatroom": {
+      "model": "chatrooms",
+      "via": "messages"
+    },
+    "user": {
+      "plugin": "users-permissions",
+      "model": "user"
+    },
+    "media": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    }
+  }
+}

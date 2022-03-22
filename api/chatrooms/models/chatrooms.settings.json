@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "chatroom",
+  "info": {
+    "name": "Chatrooms"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "project": {
+      "model": "project",
+      "via": "chatrooms"
+    },
+    "users": {
+      "plugin": "users-permissions",
+      "collection": "user"
+    },
+    "messages": {
+      "via": "chatroom",
+      "collection": "messages"
+    }
+  }
+}
